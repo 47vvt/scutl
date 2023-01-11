@@ -2,7 +2,6 @@
 "version": "2.0",
 "homepage": "https://github.com/47vvt/scutl",
 "url": "https://github.com/47vvt/scutl/archive/refs/heads/main.zip",
-"hash": "sha256:ab52db014cd48d2bfb9653870a1e730134d3967f26a45ae36ae00a052dfe787c",
 "extract_dir": "scutl-main",
 "bin": [
   [
