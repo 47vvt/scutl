@@ -114,7 +114,9 @@ Foreach($applink in $Aliases.Keys) { # Loops through the hashtable above
 }
 
 if ($run -eq "edit"){
-    start-process notepad.exe $PSScriptRoot\scutl.ps1
+    $parentdir = split-path $PSScriptRoot
+    $scriptpath = "$parentdir\apps\scutl\current\scutl.ps1"
+    start-process notepad.exe $scriptpath
     exit
 }
 
