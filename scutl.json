@@ -1,22 +1,23 @@
 {
-    "version": "2.0",
-    "homepage": "https://github.com/47vvt/scutl",
-    "url": "https://github.com/47vvt/scutl/archive/refs/heads/main.zip",
-    "extract_dir": "scutl",
-    "bin": [
-      [
-    ".\\scutl.ps1",
-    "s"
-    ]
-  ],
-    "post_install": [
-      "$lnk = Join-Path (Get-Command scoop.ps1 | Split-Path | Split-Path) shims\\s.lnk",
-      "$WshShell = New-Object -comObject WScript.Shell",
-      "$Shortcut = $WshShell.CreateShortcut(\"$lnk\")",
-      "$Shortcut.TargetPath = \"cmd.exe\"",
-      "$Shortcut.WindowStyle = 7",
-      "$Shortcut.Arguments = \"/c s.cmd\"",
-      "$Shortcut.Save()"
-    ]
-  }
-  
+"version": "2.0",
+"homepage": "https://github.com/47vvt/scutl",
+"url": "https://github.com/47vvt/scutl/archive/refs/heads/main.zip",
+"hash": "sha256:831f23e112e97aaf72a089118fcdcbd0612ed5a7d14322dd4d77c7fb260c23c0",
+"extract_dir": "scutl",
+"bin": [
+  [
+".\\scutl.ps1",
+"s"
+]
+],
+"post_install": [
+  "$lnk = Join-Path (Get-Command scoop.ps1 | Split-Path | Split-Path) shims\\s.lnk",
+  "$WshShell = New-Object -comObject WScript.Shell",
+  "$Shortcut = $WshShell.CreateShortcut(\"$lnk\")",
+  "$Shortcut.TargetPath = \"cmd.exe\"",
+  "$Shortcut.WindowStyle = 7",
+  "$Shortcut.Arguments = \"/c s.cmd\"",
+  "$Shortcut.Save()"
+]
+}
+
