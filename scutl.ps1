@@ -5,6 +5,8 @@ param(
     [Parameter(Position=3,ValueFromRemainingArguments=$true)][string[]]$3
 )
 
+$query = "$1 $2 $3"
+
 $Aliases = @{
 
 <# -------------------------------- USER EDITING STARTS HERE --------------------------------------------------------
@@ -24,7 +26,7 @@ $Aliases = @{
 
     "<link/path>"                                                  = @('<al>'   ,'<alias>') : regular syntax
     "https://www.google.com"                                       = @('gl'     ,'google')  : web address shortcut
-    "C:\Program Files\Mozilla Firefox\firefox.exe"                 = @('fi'     ,'firefox') : application shortcut (just the exe if added to PATH)
+    "C:\Program Files\Mozilla Firefox\firefox.exe"                 = @('fi'     ,'firefox') : app shortcut (file only if added to PATH)
 
 #>
 
@@ -70,8 +72,6 @@ $Aliases = @{
 
 <#--------------------------------- USER EDITING STOPS HERE ----------------------------------------------------------------------------#>
 
-$query = "$1 $2 $3"
-
 if ($run -eq $translate_alias -or $run -eq "translate"){
 
     $langfrom = $1
@@ -88,13 +88,13 @@ if ($run -eq "$ytdownloader_alias"){
     $url = "$3"
     $dls = "$env:UserProfile\downloads"
 
-    if ($format = "mp3"){
+    if ($format -eq "mp3"){
         yt-dlp.exe -f 'ba' -x --audio-format mp3 $url -o "$oname.mp3" -P $dls
         Start-Process $dls
         exit
     }
 
-    if ($format = "mp4"){
+    if ($format -eq "mp4"){
         yt-dlp.exe -f mp4 $url -o "$oname.mp4" -P $dls
         Start-Process $dls
         exit
@@ -114,7 +114,7 @@ Foreach($applink in $Aliases.Keys) { # Loops through the hashtable above
 }
 
 if ($run -eq "edit"){
-    Start-Process notepad.exe "scutl.ps1"
+    start-process notepad.exe $PSScriptRoot\scutl.ps1
     exit
 }
 
