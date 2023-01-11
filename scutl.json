@@ -3,7 +3,7 @@
 "homepage": "https://github.com/47vvt/scutl",
 "url": "https://github.com/47vvt/scutl/archive/refs/heads/main.zip",
 "hash": "sha256:831f23e112e97aaf72a089118fcdcbd0612ed5a7d14322dd4d77c7fb260c23c0",
-"extract_dir": "scutl",
+"extract_dir": "scutl-main",
 "bin": [
   [
 ".\\scutl.ps1",
