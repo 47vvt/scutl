@@ -5,7 +5,7 @@ customizable and minimalist app launcher for students
 
 paste the following into powershell:
 
-`irm x.gd/scutl2 | iex` 
+```irm x.gd/scutl2 | iex```
 
 # usage
 
@@ -13,32 +13,32 @@ simply do win + r `s (command)` to call scutl commands
  
 # examples
 
-`s g algorithmics 2023 study design`
+```s g algorithmics 2023 study design```
 
  will google "algorithmics 2023 study design"
  
  
-`s co`
+```s co```
  
  will launch compass
  
  
-`s yt how to build a minecraft house`
+```s yt how to build a minecraft house```
 
  will search "how to build a minecraft house" on youtube
  
  
-`s ytdl mp3 https://youtube.com/something`
+```s ytdl mp3 https://youtube.com/something```
  
  will download a youtube video as mp3 (options are mp3/mp4)
  
 
-`s tr fr en je suis fatigué de ce sujet`
+```s tr fr en je suis fatigué de ce sujet```
  
  will translate "je suis fatigué de ce sujet" from french to english
  
 
-`s tg`
+```s tg```
  
  will let you snip your screen and copy its text to clipboard
  
