@@ -60,6 +60,7 @@ tools
 - search for any file/folder
 - snip on-screen text to clipboard
 - convert word/ppt/excel to pdf
+- scoop install/uninstall/maintain
 
 launchables
 
