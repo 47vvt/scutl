@@ -42,6 +42,11 @@ simply do win + r `s (command)` to call scutl commands
  
  will let you snip your screen and copy its text to clipboard
  
+```s install discord```
+ 
+ will install the latest version of discord with scoop\n
+ (searches main and extras bucket for apps)
+ 
 
 # preset commands list (without args)
 
