@@ -9,7 +9,7 @@ paste the following into powershell:
 
 # usage
 
-simply do win + r 's <args>` to call scutl commands
+simply do win + r `s (command)` to call scutl commands
  
 # examples
 
