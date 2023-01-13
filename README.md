@@ -24,24 +24,24 @@ tools
 launchables
 
 - Google
-- G-suite  (do,sh,sl,si)
-- Compass  (co)
-- Youtube  (yt)
-- Twitter  (tw)
-- Pinterest  (pin)
-- Amazon AU  (amz)
-- Desmos graph  (dm)
-- Github  (gh)
+- G-suite
+- Compass
+- Youtube
+- Twitter
+- Pinterest 
+- Amazon AU 
+- Desmos graph
+- Github 
 
  google classroom
 
-- homepage (gc)
+- homepage
 - edit the script to add/customise
 
 system utils
 
-- control panel  (ct)
-- task manager  (tm)
-- shut down  (off)
-- restart  (rst)
-- advanced boot  (abo)
+- control panel
+- task manager
+- shut down
+- restart
+- advanced boot
