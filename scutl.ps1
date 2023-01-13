@@ -4,10 +4,7 @@ param(
     [Parameter(Position=2)][string]$2,
     [Parameter(Position=3,ValueFromRemainingArguments=$true)][string[]]$3
 )
-
 $query = "$1 $2 $3"
-
-
 $Aliases = @{
 
 <# ------------------------------------------------------------------------------------------------------------------
@@ -21,20 +18,29 @@ $Aliases = @{
     Call your shortcuts in Run, with `s <al/alias> <args>`
     (e.g. `s gl how to tie a tie`)
 
-----------------------------------------------------------------------------------------------------------------------
-
-    ! LINK/PATH                                                    ! ALIASES
-
     "<link/path>"                                                  = @('<al>'   ,'<alias>') : regular syntax
-    "https://www.google.com"                                       = @('gl'     ,'google')  : web address shortcut
-    "C:\Program Files\Mozilla Firefox\firefox.exe"                 = @('fi'     ,'firefox') : app shortcut (file only if added to PATH)
 
------------------------------------------- USER EDITING STARTS HERE -------------------------------------------------#>
+------------------------------------------ USER EDITING STARTS HERE ------------------------------------------------- #>
+
+
+#    ! LINK/PATH                                                    ! ALIASES
 
     <#  CLASSROOMS  #>       # add your google classrooms below
 
     "https://classsroom.google.com"                                = @('cl'     ,'classroom')
 
+
+
+
+
+
+
+    <#  BOOKMARKS / ESSENTIALS #>
+
+    "https://www.google.com/search?q=$query"                       = @('g'      ,'google')
+    "https://www.desmos.com/calculator"                            = @('dm'     ,'desmosGraph')
+    "https://suzannecoryhs-vic.compass.education/"                 = @('co'     ,'compass')
+    "https://github.com/search?q=$query"                           = @('gh'     ,'github')
 
     <#  GSUITE  #>
  
@@ -43,54 +49,95 @@ $Aliases = @{
     "https://docs.google.com/spreadsheets/u/0/?tgif=d&q=$query"    = @('sh'     ,'sheets')
     "https://sites.google.com/new?tgif=d&q=$query"                 = @('si'     ,'sites')
 
-    <#  SOCIAL MEDIA  #>
+    <#  LEISURE  #>
 
     "https://www.pinterest.com.au/search/pins/?q=$query"           = @('pin'    ,'pinterest')
     "https://twitter.com/search?q=$query"                          = @('tw'     ,'twitter')
     "https://www.youtube.com/results?search_query=$query"          = @('yt'     ,'youtube')
     "https://www.instagram.com"                                    = @('ig'     ,'instagram')
-
-    <#  BOOKMARKS AND MISC  #>
-
-    "https://www.desmos.com/calculator"                            = @('dm'     ,'desmosGraph')
-    "https://suzannecoryhs-vic.compass.education/"                 = @('co'     ,'compass')
-    "https://www.google.com/search?q=$query"                       = @('g'      ,'google')
-    "https://github.com/search?q=$query"                           = @('gh'     ,'github')
     "https://www.amazon.com.au/s?k=$query"                         = @('amz'    ,'amazonAU')
 
-
-    <#  SYSTEM  #>
+    <#  SYSTEM APPS  #>
 
     "taskmgr"                                                      = @('tm'     ,'taskManager')
     "control"                                                      = @('ct'     ,'controlPanel')
     "powershell"                                                   = @('wt'     ,'powershell')
-    "cmd /c 'shutdown.exe /p /f'"                                  = @('off'    ,'powerOff')
-    "cmd /c 'shutdown.exe /r /t'"                                  = @('rst'    ,'restart')
-    "cmd /c shutdown.exe '/o /r /t 0'"                             = @('abo'    ,'advancedBoot')
 }
     <#  TOOLS/SCOOP APPS  #>   
 
-    $everything_alias                                              =   'ev'        # search for any file/folder on your desktop (e.g. `s ev <query>`)
-    $ytdownloader_alias                                            =   'ytdl'      # simple youtube downloader as mp4 or mp3 (e.g. `s ytdl mp4 <output name> <url>`)
-    $translate_alias                                               =   'tr'        # translate with deepL (e.g. `s tr <langfrom> <langto> <query>)
+    $everything_alias                                              =   'ev'    #,'everything'  # search for any file/folder on your desktop (e.g. `s ev <query>`) (rq. everything.exe)
+    $ytdownloader_alias                                            =   'ytdl'  #,'ytDownload'  # simple youtube downloader as mp4 or mp3 (e.g. `s ytdl mp4 <output name> <url>`) (rq. yt-dlp + ffmpeg)
+        $dls = "$env:userprofile\downloads" # specify a default folder to download to if you want ($dls = <path>)
 
-<#--------------------------------- USER EDITING STOPS HERE ----------------------------------------------------------------------------#>
+    $translate_alias                                               =   'tr'    #,'translate'   # translate with deepL (e.g. `s tr <langfrom> <langto> <query>)
+    $textgrab_alias                                                =   'tg'    #,'textgrab'   # screenshot or 'snip' any text and copy it to clipboard
+    $docto_alias                                                   =   'pdf'   #,'convertpdf'  # converts word, excel, powerpoint files to pdf (e.g. `s cv <doctype> <path>`)(rq. office authenticated)
 
-if ($run -eq $translate_alias -or $run -eq "translate"){
+    $shutdown_alias                                                =   'off'   #,'shutdown' 
+    $restart_alias                                                 =   'rst'   #,'restart'
+    $advancedboot_alias                                            =   'abo'   #,'advancedBoot'
+
+<# --------------------------------------- USER EDITING STOPS HERE -------------------------------------------------- #>
+
+Foreach($applink in $Aliases.Keys) { # loops hashtable
+	if ($appstart){continue}
+	if ($run -in $Aliases.$applink){
+		$appstart = $applink
+}
+}
+
+if ($run -eq "edit"){ # edit the script in windows notepad
+    start-process notepad.exe $PSScriptRoot\scutl.ps1
+}
+
+if ($run -eq $shutdown_alias){
+    stop-computer
+}
+if ($run -eq $restart_alias){
+    restart-computer
+}
+if ($run -eq $advancedboot_alias){
+    shutdown.exe /r /o
+}
+
+if ($run -eq $translate_alias -or $run -eq "translate"){ # translate detection
 
     $langfrom = $1
     $langto = $2
     $query = $3
-    start-process "https://www.deepl.com/en/translator#$langfrom/$langto/$query"
+    start-process "https://www.deepl.com/en/translator#$langfrom/$langto/$query" -windowstyle hidden
     exit
 }
 
-if ($run -eq "$ytdownloader_alias"){
+if ($run -eq $docto_alias -or $run -eq "convertpdf"){ # pdf convert detection
+
+    $doctype = $1
+    $pathtodoc = $2
+    $pathfolder = (get-item $pathtodoc).Directory.FullName
+    $filename = Split-Path $pathtodoc -leaf
+    $trustedloc = "$env:userprofile\AppData\Roaming\Microsoft\Word\STARTUP\$filename"
+    Copy-Item -Path $pathtodoc -Destination $trustedloc
+    if ($doctype -eq "docx" -or $doctype -eq "doc"){
+        $cvformat = "wdFormatPDF"
+    }
+    if ($doctype -eq "pptx" -or $doctype -eq "ppt"){
+        $cvformat = "ppFormatPDF"
+    }
+    if ($doctype -eq "xlsx" -or $doctype -eq "xls"){
+        $cvformat = "xlFormatPDF"
+    }
+    $cvcmd = Docto -f $trustedloc -o $pathfolder -t $cvformat
+    $cvcmd
+    remove-item $trustedloc
+    start-process $pathfolder
+    exit
+}
+
+if ($run -eq "$ytdownloader_alias" -or $run -eq "download"){ # ytdl detection
 
     $format = $1
     $oname = $2
     $url = "$3"
-    $dls = "$env:UserProfile\downloads"
 
     if ($format -eq "mp3"){
         yt-dlp.exe -f 'ba' -x --audio-format mp3 $url -o "$oname.mp3" -P $dls
@@ -105,23 +152,19 @@ if ($run -eq "$ytdownloader_alias"){
     }
 }
 
-if ($run -eq "$everything_alias" -or $run -eq "everything"){
-    Start-Process everything.exe -ArgumentList @("-s $query")
+if ($run -eq "$everything_alias" -or $run -eq "everything"){ # everything.exe detection
+
+    $query = @"
+    "$1 $2 $3
+"@
+    Start-Process everything.exe -windowstyle hidden -ArgumentList @("-s $query")
     exit
 }
 
-Foreach($applink in $Aliases.Keys) { # Loops through the hashtable above
-	if ($appstart){continue}
-	if ($run -in $Aliases.$applink){
-		$appstart = $applink
-}
-}
-
-if ($run -eq "edit"){
-    start-process notepad.exe $env:userprofile\scoop\apps\scutl\current\scutl.ps1
+if ($run -eq "$textgrab_alias" -or $run -eq "textgrab"){ # text-grab detection
+    powershell -windowstyle hidden -command "text-grab.exe"
     exit
 }
-
 
 <# -------------------------------------- Help -------------------------------------- #>
 
@@ -149,39 +192,42 @@ if (!$run){
 
 
 "@ | Write-Output
-    Write-Host "   all commands are called with `s <command>`. list of commands below:   " -ForegroundColor Green
+    Write-Host "    all commands are called with `s <command>`. list of commands below:   " -ForegroundColor Green
     @"
 
-    - edit/open the script to add your own / remove shortcuts (edit)
+    - edit/open the script 's edit'
     
-        Tools
+        Tools  's <arg1> <arg2> <arg3>'
 
-    - youtube downloader (ytdl <mp3/mp4> <output name> <url>)
-    - search all desktop files (ev <query>)
+    - youtube downloader  (ytdl <mp3/mp4> <output name> <url>)
+    - search for any file/folder  (ev <query>)
+    - snip on-screen text to clipboard  (tg)
+    - convert word/ppt/excel to pdf  (pdf <docx/pptx/xlsx> <filepath>)
 
-        Launchable websites with syntax `s <name> <query>`
+        Launchables  's <name> <query>'
     
-    - Google (g)
-    - Compass (co)
-    - Desmos graph calc (dm)
-    - Youtube (yt)
-    - Amazon AU (amz)
-    - Github (gh)
-    - G-suite (<first 2 letters of app>) e.g. do = docs, sh = sheets
-    - Pinterest (pin)
-    - Twitter (tw)
+    - Google  (g)
+    - G-suite  (do,sh,sl,si)
+    - Compass  (co)
+    - Youtube  (yt)
+    - Twitter  (tw)
+    - Pinterest  (pin)
+    - Amazon AU  (amz)
+    - Desmos graph  (dm)
+    - Github  (gh)
 
-        Google Classrooms
+        Google Classrooms 's <name>'
 
-    - edit the script to add your classrooms with custom shortcut names
+    - homepage (gc)
+    - edit the script to add/customise
 
-        System
+        System 's <command>'
     
-    - control panel (ct)
-    - task manager (tm)
-    - shut down (off)
-    - restart (rst)
-    - advanced boot (abo)
+    - control panel  (ct)
+    - task manager  (tm)
+    - shut down  (off)
+    - restart  (rst)
+    - advanced boot  (abo)
 "@ | Write-Output
     Start-Sleep 2147483
     exit
