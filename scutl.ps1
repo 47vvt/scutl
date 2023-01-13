@@ -218,7 +218,7 @@ if (!$run){
 
         Google Classrooms 's <name>'
 
-    - homepage (gc)
+    - homepage (cl)
     - edit the script to add/customise
 
         System 's <command>'
