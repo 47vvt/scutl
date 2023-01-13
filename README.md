@@ -7,10 +7,13 @@ paste the following into powershell:
 
 `irm x.gd/scutl2 | iex` 
 
+# usage
+
+simply do win + r 's <args>` to call scutl commands
+
 # commands
 
-all commands are called with 's (command)' in Run. this list is 
-provided (+ shortcut args) when scutl is called with no commands:
+this list is provided (+ shortcut args) when scutl is called with no commands:
 
 - edit/open the script 's edit'
 
