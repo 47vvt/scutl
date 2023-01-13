@@ -11,7 +11,7 @@ paste the following into powershell:
 
 simply do win + r 's <args>` to call scutl commands
 
-# commands
+# preset commands list (without args)
 
 this list is provided (+ shortcut args) when scutl is called with no commands:
 
