@@ -13,14 +13,14 @@ all commands are called with s <command>. list of commands below:
 
 - edit/open the script 's edit'
 
-    Tools  's <arg1> <arg2> <arg3>'
+tools
 
 - youtube downloader  (ytdl <mp3/mp4> <output name> <url>)
 - search for any file/folder  (ev <query>)
 - snip on-screen text to clipboard  (tg)
 - convert word/ppt/excel to pdf  (pdf <docx/pptx/xlsx> <filepath>)
 
-    Launchables  's <name> <query>'
+launchables
 
 - Google  (g)
 - G-suite  (do,sh,sl,si)
@@ -32,12 +32,12 @@ all commands are called with s <command>. list of commands below:
 - Desmos graph  (dm)
 - Github  (gh)
 
-    Google Classrooms 's <name>'
+ google classroom
 
 - homepage (gc)
 - edit the script to add/customise
 
-    System 's <command>'
+system utils
 
 - control panel  (ct)
 - task manager  (tm)
