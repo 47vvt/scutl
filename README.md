@@ -17,25 +17,31 @@ simply do win + r `s (command)` to call scutl commands
 
  will google "algorithmics 2023 study design"
  
+ 
 `s co`
  
  will launch compass
+ 
  
 `s yt how to build a minecraft house`
 
  will search "how to build a minecraft house" on youtube
  
+ 
 `s ytdl mp3 https://youtube.com/something`
  
  will download a youtube video as mp3 (options are mp3/mp4)
+ 
 
 `s tr fr en je suis fatigué de ce sujet`
  
  will translate "je suis fatigué de ce sujet" from french to english
+ 
 
 `s tg`
  
  will let you snip your screen and copy its text to clipboard
+ 
 
 # preset commands list (without args)
 
