@@ -9,7 +9,7 @@ paste the following into powershell:
 
 # commands
 
-all commands are called with s (command) in Run. this list is provided (+ shortcut args) when scutl is called with no commands:
+all commands are called with 's (command)' in Run. this list is provided (+ shortcut args) when scutl is called with no commands:
 
 - edit/open the script 's edit'
 
