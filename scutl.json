@@ -2,7 +2,7 @@
 "version": "1.0",
 "homepage": "https://github.com/47vvt/scutl",
 "url": "https://raw.githubusercontent.com/47vvt/scutl/1.0/scutl.ps1",
-"hash": "sha256:F4E9B79F030E3053AE35A96EE23DB79E84371450888CEE2CB51B38BF2D5B6946",
+"hash": "sha256:d9342edfcafb884832644990e3b8eb0bb997d71f710e946f01da2e509971dc62",
 "extract_dir": "scutl",
 "bin": [
   [
