@@ -1,8 +1,8 @@
 [System.Net.ServicePointManager]::SecurityProtocol = 'Tls12'
     # Forces TLS 1.2
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 Set-ExecutionPolicy Bypass -Scope Process -Force
 
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod https://get.scoop.sh | Invoke-Expression
 
 
