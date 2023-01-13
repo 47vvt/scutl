@@ -192,7 +192,7 @@ if (!$run){
 
 
 "@ | Write-Output
-    Write-Host "    all commands are called with `s <command>`. list of commands below:   " -ForegroundColor Green
+    Write-Host "    all commands are called with 's <command>'. list of commands below:   " -ForegroundColor Green
     @"
 
     - edit/open the script 's edit'
