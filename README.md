@@ -44,7 +44,7 @@ simply do win + r `s (command)` to call scutl commands
  
 ```s install discord```
  
- will install the latest version of discord with scoop\n
+ will install the latest version of discord with scoop
  (searches main and extras bucket for apps)
  
 
