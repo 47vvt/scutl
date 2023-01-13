@@ -216,7 +216,7 @@ if (!$run){
     - Desmos graph  (dm)
     - Github  (gh)
 
-        Google Classrooms 's <name>'
+        Google classrooms 's <name>'
 
     - homepage (cl)
     - edit the script to add/customise
