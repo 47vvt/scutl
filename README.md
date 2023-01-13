@@ -9,20 +9,20 @@ paste the following into powershell:
 
 # commands
 
-all commands are called with s <command>. list of commands below:
+all commands are called with s (command) in Run. this list is provided (+ shortcut args) when scutl is called with no commands:
 
 - edit/open the script 's edit'
 
 tools
 
-- youtube downloader  (ytdl <mp3/mp4> <output name> <url>)
-- search for any file/folder  (ev <query>)
-- snip on-screen text to clipboard  (tg)
-- convert word/ppt/excel to pdf  (pdf <docx/pptx/xlsx> <filepath>)
+- youtube downloader 
+- search for any file/folder
+- snip on-screen text to clipboard
+- convert word/ppt/excel to pdf
 
 launchables
 
-- Google  (g)
+- Google
 - G-suite  (do,sh,sl,si)
 - Compass  (co)
 - Youtube  (yt)
