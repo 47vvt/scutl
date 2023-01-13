@@ -2,7 +2,6 @@
     # Forces TLS 1.2
 Set-ExecutionPolicy Bypass -Scope Process -Force
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod https://get.scoop.sh | Invoke-Expression
 
 
