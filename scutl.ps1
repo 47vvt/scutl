@@ -166,6 +166,19 @@ if ($run -eq "$textgrab_alias" -or $run -eq "textgrab"){ # text-grab detection
     exit
 }
 
+if ($run -eq "install"){
+    $appsfolder = (get-item $PSScriptRoot).Parent.Parent.FullName
+    powershell scoop install $1
+    start-process $appsfolder\$1\current
+}
+if ($run -eq "uninstall"){
+    powershell scoop uninstall $1
+}
+if ($run -eq "maintain"){
+    powershell scoop update *
+    powershell scoop cleanup *
+}
+
 <# -------------------------------------- Help -------------------------------------- #>
 
 if (!$run){
@@ -203,6 +216,7 @@ if (!$run){
     - search for any file/folder  (ev <query>)
     - snip on-screen text to clipboard  (tg)
     - convert word/ppt/excel to pdf  (pdf <docx/pptx/xlsx> <filepath>)
+    - scoop (install/uninstall/maintain) (maintain updates and cleans up all apps)
 
         Launchables  's <name> <query>'
     
