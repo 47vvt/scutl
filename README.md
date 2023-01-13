@@ -25,7 +25,7 @@ simply do win + r 's <args>` to call scutl commands
 
  will search "how to build a minecraft house" on youtube
  
-`s ytdl mp3 https://youtube.com/something'
+`s ytdl mp3 https://youtube.com/something`
  
  will download a youtube video as mp3 (options are mp3/mp4)
 
