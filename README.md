@@ -7,6 +7,10 @@ paste the following into powershell:
 
 ```irm x.gd/scutl2 | iex```
 
+if you already have scoop, use 
+
+```irm x.gd/alt_scutl | iex```
+
 # usage
 
 simply do win + r `s (command)` to call scutl commands
