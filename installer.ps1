@@ -4,6 +4,10 @@
     # Forces TLS 1.2
 Set-ExecutionPolicy Bypass -Scope Process -Force
 
+Write-Host @"
+please use 'irm x.gd/alt_scutl | iex' if you already have scoop
+"@
+
 $option = Read-Host -Prompt "install additional scutl features ~500mb? (y/n)"
 
 Invoke-RestMethod https://get.scoop.sh | Invoke-Expression
