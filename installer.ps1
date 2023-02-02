@@ -5,8 +5,10 @@
 Set-ExecutionPolicy Bypass -Scope Process -Force
 
 Write-Host @"
-please use 'irm x.gd/alt_scutl | iex' if you already have scoop
-"@
+
+please use 'irm x.gd/alt_scutl | iex' if you already have scoop.
+
+"@ -ForegroundColor Yellow
 
 $option = Read-Host -Prompt "install additional scutl features ~500mb? (y/n)"
 
