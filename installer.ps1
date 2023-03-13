@@ -25,6 +25,8 @@ if ($option -eq "y"){
     scoop.cmd install docto ffmpeg yt-dlp everything text-grab 
 }
 
+cls
+
 Write-Host @"
 Downloads complete! You may close the window.
 Type 's' in Run to show scutl commands.
