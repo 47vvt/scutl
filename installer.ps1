@@ -16,12 +16,12 @@ Invoke-RestMethod https://get.scoop.sh | Invoke-Expression
 
 # apps dl
 
-scoop.cmd install git aria2
 scoop.cmd bucket add extras
 scoop.cmd bucket add scutl https://github.com/47vvt/scutl
 scoop.cmd install scutl
 
 if ($option -eq "y"){
+    scoop.cmd install aria2 git 7z
     scoop.cmd install docto ffmpeg yt-dlp everything text-grab 
 }
 
